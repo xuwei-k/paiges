@@ -2,7 +2,7 @@ import sbtcrossproject.{crossProject, CrossType}
 
 val Scala211 = "2.11.12"
 val Scala212 = "2.12.8"
-val Scala213 = "2.13.0-M5"
+val Scala213 = "2.13.0-RC1"
 
 inThisBuild(List(
   organization := "org.typelevel",
@@ -63,7 +63,7 @@ lazy val core = crossProject(JSPlatform, JVMPlatform, NativePlatform)
   .jvmSettings(commonJvmSettings)
   .platformsSettings(JVMPlatform, JSPlatform)(
     libraryDependencies ++= Seq(
-      "org.scalatest" %%% "scalatest" % "3.0.6-SNAP5" % Test,
+      "org.scalatest" %%% "scalatest" % "3.0.8-RC2" % Test,
       "org.scalacheck" %%% "scalacheck" % "1.14.0" % Test
     )
   )
@@ -90,8 +90,8 @@ lazy val cats = crossProject(JSPlatform, JVMPlatform)
     name := "paiges-cats",
     moduleName := "paiges-cats",
     libraryDependencies ++= Seq(
-      "org.typelevel" %%% "cats-core" % "1.6.0",
-      "org.typelevel" %%% "cats-laws" % "1.6.0" % Test),
+      "org.typelevel" %%% "cats-core" % "2.0.0-M1",
+      "org.typelevel" %%% "cats-laws" % "2.0.0-M1" % Test),
     mimaPreviousArtifacts := previousArtifact(version.value, "cats"))
   .disablePlugins(JmhPlugin)
   .jsSettings(commonJsSettings)
